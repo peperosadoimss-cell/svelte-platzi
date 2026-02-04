@@ -5,6 +5,8 @@
 	import Skills from "./components/Skills.svelte";
 	import Input from "./components/Input.svelte";
 	import Photos from "./components/Photos.svelte";
+	import ButtonCount from "./components/ButtonCount.svelte";
+	import { contador } from "./store/store.js";
 	export let name;
 	export let lastname;
 
@@ -13,6 +15,8 @@
 		lastname: "Framework",
 		age: 31
 	};
+
+	
 </script>
 <style>
 	:global(body){
@@ -30,12 +34,13 @@
 </style>
 
 <main>
-	<h1>Hello {name} {lastname}!</h1>
+	<h1>Hello {name} {lastname} {$contador ===0? "": $contador}!</h1>
 	<About />
 	<Text anotherText="Hola Jose Luis" />
 	<Text />
 	<Person  {...data} />
 	<Skills />
 	<Input />
-	<Photos />
+	<ButtonCount />
+	<!-- <Photos />-->
 </main>
